@@ -29,6 +29,9 @@ public class NameSurferGraph extends GCanvas
 									APPLICATION_WIDTH, APPLICATION_HEIGHT - GRAPH_MARGIN_SIZE);
 		add(topline);
 		add(bottomline);
+		
+		GLine mid = new GLine(getWidth() / 4, getHeight() / 4, getWidth() / 2, getHeight() / 4);
+		add(mid);
 	}
 	
 	
