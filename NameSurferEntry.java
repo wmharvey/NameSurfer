@@ -42,10 +42,9 @@ public class NameSurferEntry implements NameSurferConstants {
 		String nextDecade = "";
 		last++;
 		for (int i = 0; i < 4; i++) {
-			char ch = line.charAt(i + last);
-			if (ch == ' ') {
-				break;
-			}
+			if (last == line.length()) break;
+			char ch = line.charAt(last);
+			if (ch == ' ') break;
 			nextDecade += ch;
 			last++;
 		}
