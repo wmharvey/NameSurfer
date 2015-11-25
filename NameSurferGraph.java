@@ -30,7 +30,7 @@ public class NameSurferGraph extends GCanvas
 		add(topline);
 		add(bottomline);
 		
-		GLine mid = new GLine(getWidth() / 4, getHeight() / 4, getWidth() / 2, getHeight() / 4);
+		GLine mid = new GLine(this.getWidth() / 4, this.getHeight() / 4, this.getWidth() / 2, this.getHeight() / 4);
 		add(mid);
 	}
 	
