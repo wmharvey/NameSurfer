@@ -30,36 +30,32 @@ public class NameSurfer extends Program implements NameSurferConstants {
  */
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if (source == graph || source == name) {
-			NameSurferEntry entry = database.findEntry(name.getText());
-			if (entry != null) {
-				println("Graph: " + entry);
-			} else {
-				println("Graph: Name data not available");
-			}
+		if (source == graphButton || source == name) {
+			//stuff
 		}
-		if (source == clear) {
-			println("Clear");
+		if (source == clearButton) {
+			//stuff
 		}
 	}
 	
 	private void initControlBar() {
 		name = new JTextField(15);
 		name.addActionListener(this);
-		graph = new JButton("Graph");
-		clear = new JButton("Clear");
+		graphButton = new JButton("Graph");
+		clearButton = new JButton("Clear");
 		add(new JLabel("Name"), NORTH);
 		add(name, NORTH);
-		add(graph, NORTH);
-		add(clear, NORTH);
+		add(graphButton, NORTH);
+		add(clearButton, NORTH);
 		addActionListeners();
 		
 	}
 	
 // Private Instance Variables
 	private JTextField name;
-	private JButton graph;
-	private JButton clear;
+	private JButton graphButton;
+	private JButton clearButton;
 	
 	private NameSurferDataBase database = new NameSurferDataBase("names-data.txt");
+	private NameSurferGraph graph;
 }
