@@ -100,7 +100,7 @@ public class NameSurferGraph extends GCanvas
 	
 	// Private instance variables
 	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
-	private double popspacing = ((getHeight() - GRAPH_MARGIN_SIZE - GRAPH_MARGIN_SIZE) / 1000.0);
+	private double popspacing = ((getHeight() / 1000.0);
 	
 	
 	/* Implementation of the ComponentListener interface */
