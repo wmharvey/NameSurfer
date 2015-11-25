@@ -29,6 +29,8 @@ public class NameSurferGraph extends GCanvas
 									APPLICATION_WIDTH, APPLICATION_HEIGHT - GRAPH_MARGIN_SIZE);
 		add(topline);
 		add(bottomline);
+		
+		add(new GRect(getWidth(), getHeight()));
 	}
 	
 	
