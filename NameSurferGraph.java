@@ -84,24 +84,43 @@ public class NameSurferGraph extends GCanvas
 		double lastX = 0;
 		double lastY = 0;
 		for (int i = 0; i < NDECADES; i++) {
+			Color color = nextColor();
 			int popularity = entry.getRank(i);
 			double currentX = (getWidth() / NDECADES) * i;
 			double currentY = GRAPH_MARGIN_SIZE + popularity * getHeight() / 1000.0;
 			if (popularity != 0) {
-				add(new GLabel((entry.getName() + " " + popularity), currentX, currentY));
+				GLabel label = new GLabel((entry.getName() + " " + popularity), currentX, currentY);
+				label.setColor(color);
+				add(label);
 			} else {
 				currentY = (getHeight() - GRAPH_MARGIN_SIZE);
-				add(new GLabel((entry.getName() + " *"), currentX, currentY));
+				GLabel label = new GLabel((entry.getName() + " *"), currentX, currentY);
+				label.setColor(color);
+				add(label);
 			}
-			add(new GLine(lastX, lastY, currentX, currentY));
+			GLine line = new GLine(lastX, lastY, currentX, currentY);
+			line.setColor(color);
+			add(line);
 			lastX = currentX;
 			lastY = currentY;
 			
 		}
 	}
 	
+	private Color nextColor() {
+		switch (colorNumber) {
+		case 0: return Color.BLACK;
+		case 1: return Color.RED;
+		case 2: return Color.Blue;
+		case 3: return Color.MAGENTA;
+		}
+		colorNumber++;
+		if (colorNumber > 3) colorNumber = 0;
+	}
+	
 	// Private instance variables
 	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
+	private int colorNumber = 0;
 	
 	/* Implementation of the ComponentListener interface */
 	public void componentHidden(ComponentEvent e) { }
