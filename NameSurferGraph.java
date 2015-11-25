@@ -20,18 +20,6 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public NameSurferGraph() {
 		addComponentListener(this);
-		createBackground();
-	}
-	
-	private void createBackground() {
-		GLine topline = new GLine(0, GRAPH_MARGIN_SIZE, APPLICATION_WIDTH, GRAPH_MARGIN_SIZE);
-		GLine bottomline = new GLine(0, APPLICATION_HEIGHT - GRAPH_MARGIN_SIZE, 
-									APPLICATION_WIDTH, APPLICATION_HEIGHT - GRAPH_MARGIN_SIZE);
-		add(topline);
-		add(bottomline);
-		
-		GLine mid = new GLine(this.getWidth() / 4, this.getHeight() / 4, this.getWidth() / 2, this.getHeight() / 4);
-		add(mid);
 	}
 	
 	
@@ -62,8 +50,16 @@ public class NameSurferGraph extends GCanvas
 	* the size of the canvas changes.
 	*/
 	public void update() {
-		// You fill this in //
+		createBackground();
 	}
+	
+	private void createBackground() {
+		GLine topline = new GLine(0, GRAPH_MARGIN_SIZE, getWidth(), GRAPH_MARGIN_SIZE);
+		GLine bottomline = new GLine(0, getHeight() - GRAPH_MARGIN_SIZE, 
+									getWidth(), getHeight() - GRAPH_MARGIN_SIZE);
+		add(topline);
+		add(bottomline);
+	}	
 	
 	
 	/* Implementation of the ComponentListener interface */
