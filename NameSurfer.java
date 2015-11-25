@@ -21,6 +21,13 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void init() {
 	    initControlBar();
 	}
+	
+	public void run() {
+		NameSurferEntry entry = new NameSurferEntry("Sam 0 69 99 131 168 236 278 380 1000 405 566");
+		println(entry.getName());
+		println(entry.getRank(3));
+		println(entry);
+	}
 
 /* Method: actionPerformed(e) */
 /**
