@@ -58,11 +58,18 @@ public class NameSurferGraph extends GCanvas
 		GLine topline = new GLine(0, GRAPH_MARGIN_SIZE, getWidth(), GRAPH_MARGIN_SIZE);
 		GLine bottomline = new GLine(0, getHeight() - GRAPH_MARGIN_SIZE, 
 									getWidth(), getHeight() - GRAPH_MARGIN_SIZE);
+		add(topline);
+		add(bottomline);
 		for (int i = 0; i < NDECADES; i++) {
 			add(new GLine(i * (getWidth() / NDECADES), 0, i * (getWidth() / NDECADES), getHeight()) );
 		}
-		add(topline);
-		add(bottomline);
+		for (int i = 0; i < NDECADES; i++) {
+			GLabel label = new GLabel("" + (START_DECADE + (10 * i)));
+			double x = 10 + ((getWidth() / NDECADES) * i);
+			double y = getHeight() - ((GRAPH_MARGIN_SIZE - label.getAscent()) / 2);
+			add(label, x, y);
+		}
+		
 	}	
 	
 	
