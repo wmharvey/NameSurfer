@@ -25,7 +25,15 @@ public class NameSurferDataBase implements NameSurferConstants {
 	public NameSurferDataBase(String filename) {
 		try {
 			BufferedReader rd = new BufferedReader(new FileReader(filename));
-			
+			while (true) {
+				String line = rd.readLine();
+				if (line == null) break;
+				NameSurferEntry entry = new NameSurferEntry(line);
+				nameMap.put(entry.getName(), entry);
+			}
+			rd.close();
+		} catch (IOException ex) {
+			throw new ErrorException(ex);
 		}
 	}
 	
@@ -36,8 +44,11 @@ public class NameSurferDataBase implements NameSurferConstants {
  * method returns null.
  */
 	public NameSurferEntry findEntry(String name) {
-		// You need to turn this stub into a real implementation //
-		return null;
+		if (nameMap.containsKey(name)) {
+			return nameMap.get(name);
+		} else {
+			return null;
+		}
 	}
 	
 	private HashMap<String, NameSurferEntry> nameMap = new HashMap<String, NameSurferEntry>();
