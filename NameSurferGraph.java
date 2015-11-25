@@ -83,8 +83,8 @@ public class NameSurferGraph extends GCanvas
 	private void graphEntry(NameSurferEntry entry) {
 		double lastX = 0;
 		double lastY = 0;
+		Color color = nextColor();
 		for (int i = 0; i < NDECADES; i++) {
-			Color color = nextColor();
 			int popularity = entry.getRank(i);
 			double currentX = (getWidth() / NDECADES) * i;
 			double currentY = GRAPH_MARGIN_SIZE + popularity * getHeight() / 1000.0;
@@ -103,7 +103,6 @@ public class NameSurferGraph extends GCanvas
 			add(line);
 			lastX = currentX;
 			lastY = currentY;
-			
 		}
 	}
 	
