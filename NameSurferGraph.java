@@ -24,10 +24,9 @@ public class NameSurferGraph extends GCanvas
 	}
 	
 	private void createBackground() {
-		GLine topline = new GLine(0, GRAPH_MARGIN_SIZE, getWidth(), GRAPH_MARGIN_SIZE);
+		add(new GLine(0, GRAPH_MARGIN_SIZE, getWidth(), GRAPH_MARGIN_SIZE));
 		GLine bottomline = new GLine(0, getHeight() - GRAPH_MARGIN_SIZE, 
 									getWidth(), getHeight() - GRAPH_MARGIN_SIZE);
-		add(topline);
 		add(bottomline);
 		add(new GRect(100, 100));
 	}
