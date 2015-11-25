@@ -87,7 +87,8 @@ public class NameSurferGraph extends GCanvas
 		for (int i = 0; i < NDECADES; i++) {
 			int popularity = entry.getRank(i);
 			double currentX = (getWidth() / NDECADES) * i;
-			double currentY = GRAPH_MARGIN_SIZE + popularity * ((getHeight() - 40.0)/ 1000.0);
+			double currentY = GRAPH_MARGIN_SIZE + popularity * 
+					((getHeight() - (double)(GRAPH_MARGIN_SIZE * 2))/ 1000.0);
 			if (popularity != 0) {
 				GLabel label = new GLabel((entry.getName() + " " + popularity), currentX, currentY);
 				label.setColor(color);
