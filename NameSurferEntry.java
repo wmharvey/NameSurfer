@@ -19,7 +19,38 @@ public class NameSurferEntry implements NameSurferConstants {
  * decade.
  */
 	public NameSurferEntry(String line) {
-		// You fill this in //
+		name = parseName(line);
+		for (int decade = 0; decade < 11; decade++) {
+			rankArray[decade] = parseDecade(line, decade);
+		}
+	}
+	
+	public String parseName(String line) {
+		String newName = "";
+		for (int i = 0; i < line.length(); i++) {
+			char ch = line.charAt(i);
+			if (ch == ' ') {
+				break;
+			}
+			newName += ch;
+			last++;
+		}
+		return newName;
+	}
+	
+	public int parseDecade(String line, int decade) {
+		String nextDecade = "";
+		last++;
+		for (int i = 0; i < 4; i++) {
+			char ch = line.charAt(i + last);
+			if (ch == ' ') {
+				break;
+			}
+			nextDecade += ch;
+			last++;
+		}
+		int rank = Integer.parseInt(nextDecade);
+		return rank;
 	}
 
 /* Method: getName() */
@@ -27,8 +58,7 @@ public class NameSurferEntry implements NameSurferConstants {
  * Returns the name associated with this entry.
  */
 	public String getName() {
-		// You need to turn this stub into a real implementation //
-		return null;
+		return name;
 	}
 
 /* Method: getRank(decade) */
@@ -40,8 +70,7 @@ public class NameSurferEntry implements NameSurferConstants {
  * not appear in a decade, the rank value is 0.
  */
 	public int getRank(int decade) {
-		// You need to turn this stub into a real implementation //
-		return 0;
+		return rankArray[decade];
 	}
 
 /* Method: toString() */
@@ -50,8 +79,22 @@ public class NameSurferEntry implements NameSurferConstants {
  * NameSurferEntry.
  */
 	public String toString() {
-		// You need to turn this stub into a real implementation //
-		return "";
+		String printout = name + " [";
+		for (int i = 0; i < 11; i++) {
+			printout += rankArray[i];
+			if (i < 10) {
+				printout += " ";
+			}
+			if (i == 10) {
+				printout += "]";
+			}
+		}
+		return printout;	
 	}
+	
+	private String name;
+	private int[] rankArray = new int[11];
+	
+	private int last = 0;
 }
 
