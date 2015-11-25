@@ -31,7 +31,12 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source == graph || source == name) {
-			println("Graph: \"" + name.getText() + "\"");
+			NameSurferEntry entry = database.findEntry(name.getText());
+			if (entry != null) {
+				println("Graph: " + entry);
+			} else {
+				println("Graph: Name data not available");
+			}
 		}
 		if (source == clear) {
 			println("Clear");
@@ -56,5 +61,5 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	private JButton graph;
 	private JButton clear;
 	
-	private NameSurferDataBase = new NameSurferDataBase("names-data.txt");
+	private NameSurferDataBase database = new NameSurferDataBase("names-data.txt");
 }
