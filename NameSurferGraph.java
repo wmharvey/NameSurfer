@@ -93,14 +93,15 @@ public class NameSurferGraph extends GCanvas
 				currentY = (getHeight() - GRAPH_MARGIN_SIZE);
 				add(new GLabel((entry.getName() + " *"), currentX, currentY));
 			}
+			add(new GLine(lastX, lastY, currentX, currentY));
+			lastX = currentX;
+			lastY = currentY;
 			
 		}
 	}
 	
 	// Private instance variables
 	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
-	private double popspacing = ((getHeight() - GRAPH_MARGIN_SIZE - GRAPH_MARGIN_SIZE) / 1000.0);
-	
 	
 	/* Implementation of the ComponentListener interface */
 	public void componentHidden(ComponentEvent e) { }
