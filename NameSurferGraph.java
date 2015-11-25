@@ -91,11 +91,11 @@ public class NameSurferGraph extends GCanvas
 			if (popularity != 0) {
 				currentX = (getWidth() / NDECADES) * i;
 				currentY = ((getHeight() - 2 * GRAPH_MARGIN_SIZE) / 1000) * popularity;
-				add(new GLabel(entry.getName() + " " + popularity), currentX, currentY);
+				add(new GLabel((entry.getName() + " " + popularity), currentX, currentY));
 			} else {
 				currentX = (getWidth() / NDECADES) * i;
 				currentY = (getHeight() - 2 * GRAPH_MARGIN_SIZE);
-				add(new GLabel(entry.getName() + " *"), currentX, currentY);
+				add(new GLabel((entry.getName() + " *"), currentX, currentY));
 			}
 			
 		}
