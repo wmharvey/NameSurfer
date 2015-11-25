@@ -6,7 +6,9 @@
  */
 
 import acm.program.*;
+
 import java.awt.event.*;
+
 import javax.swing.*;
 
 public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
@@ -27,7 +29,10 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  * button actions.
  */
 	public void actionPerformed(ActionEvent e) {
-		// You fill this in //
+		Object source = e.getSource();
+		if (source == graph) {
+			println("Graph: \"" + name.getText() + "\"");
+		}
 	}
 	
 	private void initControlBar() {
