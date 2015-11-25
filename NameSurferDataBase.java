@@ -10,6 +10,7 @@
  */
 
 import acm.util.*;
+import java.io.*;
 import java.util.*;
 
 public class NameSurferDataBase implements NameSurferConstants {
@@ -22,7 +23,10 @@ public class NameSurferDataBase implements NameSurferConstants {
  * occurs as the file is being read.
  */
 	public NameSurferDataBase(String filename) {
-		// You fill this in //
+		try {
+			BufferedReader rd = new BufferedReader(new FileReader(filename));
+			
+		}
 	}
 	
 /* Method: findEntry(name) */
@@ -35,5 +39,7 @@ public class NameSurferDataBase implements NameSurferConstants {
 		// You need to turn this stub into a real implementation //
 		return null;
 	}
+	
+	private HashMap<String, NameSurferEntry> nameMap = new HashMap<String, NameSurferEntry>();
 }
 
