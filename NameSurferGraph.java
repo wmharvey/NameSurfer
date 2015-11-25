@@ -108,19 +108,20 @@ public class NameSurferGraph extends GCanvas
 	}
 	
 	private Color nextColor() {
+		colorNumber++;
+		if (colorNumber > 3) colorNumber = 0;
 		switch (colorNumber) {
 		case 0: return Color.BLACK;
 		case 1: return Color.RED;
 		case 2: return Color.BLUE;
 		case 3: return Color.MAGENTA;
+		default: return Color.BLACK;
 		}
-		colorNumber++;
-		if (colorNumber > 3) colorNumber = 0;
 	}
 	
 	// Private instance variables
 	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
-	private int colorNumber = 0;
+	private int colorNumber = 3;
 	
 	/* Implementation of the ComponentListener interface */
 	public void componentHidden(ComponentEvent e) { }
