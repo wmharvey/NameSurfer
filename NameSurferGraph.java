@@ -90,7 +90,7 @@ public class NameSurferGraph extends GCanvas
 			if (popularity != 0) {
 				add(new GLabel((entry.getName() + " " + popularity), currentX, currentY));
 			} else {
-				currentY = (getHeight() - 2 * GRAPH_MARGIN_SIZE);
+				currentY = (getHeight() - GRAPH_MARGIN_SIZE);
 				add(new GLabel((entry.getName() + " *"), currentX, currentY));
 			}
 			
