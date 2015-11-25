@@ -19,6 +19,8 @@ public class NameSurfer extends Program implements NameSurferConstants {
  * and initializing the interactors at the top of the window.
  */
 	public void init() {
+		graph = new NameSurferGraph();
+		add(graph);
 	    initControlBar();
 	}
 
