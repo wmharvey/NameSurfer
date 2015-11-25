@@ -7,6 +7,7 @@
 
 import acm.program.*;
 import acm.graphics.*;
+import acm.util.*;
 import java.awt.event.*;
 import javax.swing.*;
 
