@@ -111,7 +111,7 @@ public class NameSurferGraph extends GCanvas
 		switch (colorNumber) {
 		case 0: return Color.BLACK;
 		case 1: return Color.RED;
-		case 2: return Color.Blue;
+		case 2: return Color.BLUE;
 		case 3: return Color.MAGENTA;
 		}
 		colorNumber++;
