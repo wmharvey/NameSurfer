@@ -81,6 +81,7 @@ public class NameSurferGraph extends GCanvas
 	}
 	
 	private void graphEntry(NameSurferEntry entry) {
+		add(new GRect(100, 100));
 		double lastX = 0;
 		double lastY = 0;
 		for (int i = 0; i < NDECADES; i++) {
