@@ -33,10 +33,15 @@ public class NameSurfer extends Program implements NameSurferConstants {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source == graphButton || source == name) {
-			//stuff
+			NameSurferEntry entry = database.findEntry(name.getText());
+			if (entry != null) {
+				graph.addEntry(entry);
+				graph.update();
+			}
 		}
 		if (source == clearButton) {
-			//stuff
+			graph.clear();
+			graph.update();
 		}
 	}
 	
