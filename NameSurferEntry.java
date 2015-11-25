@@ -20,7 +20,7 @@ public class NameSurferEntry implements NameSurferConstants {
  */
 	public NameSurferEntry(String line) {
 		name = parseName(line);
-		for (int decade = 0; decade < 11; decade++) {
+		for (int decade = 0; decade < NDECADES; decade++) {
 			rankArray[decade] = parseDecade(line, decade);
 		}
 	}
@@ -92,7 +92,7 @@ public class NameSurferEntry implements NameSurferConstants {
 	}
 	
 	private String name;
-	private int[] rankArray = new int[11];
+	private int[] rankArray = new int[NDECADES];
 	
 	private int last = 0;
 }
