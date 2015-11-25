@@ -27,7 +27,7 @@ public class NameSurferGraph extends GCanvas
 	* Clears the list of name surfer entries stored inside this class.
 	*/
 	public void clear() {
-		//stuff
+		list.clear();
 	}
 	
 	
@@ -38,7 +38,7 @@ public class NameSurferGraph extends GCanvas
 	* simply stores the entry; the graph is drawn by calling update.
 	*/
 	public void addEntry(NameSurferEntry entry) {
-		// You fill this in //
+		list.add(entry);
 	}
 	
 	
@@ -52,6 +52,7 @@ public class NameSurferGraph extends GCanvas
 	public void update() {
 		removeAll();
 		createBackground();
+		graph();
 	}
 	
 	private void createBackground() {
@@ -70,7 +71,37 @@ public class NameSurferGraph extends GCanvas
 			add(label, x, y);
 		}
 		
-	}	
+	}
+	
+	private void graph() {
+		Iterator<NameSurferEntry> it = list.iterator();
+		while (it.hasNext()) {
+			graphEntry(it.next());
+		}
+	}
+	
+	private void graphEntry(NameSurferEntry entry) {
+		double lastX = 0;
+		double lastY = 0;
+		for (int i = 0; i < NDECADES; i++) {
+			int popularity = entry.getRank(i);
+			double currentX;
+			double currentY;
+			if (popularity != 0) {
+				currentX = (getWidth() / NDECADES) * i;
+				currentY = ((getHeight() - 2 * GRAPH_MARGIN_SIZE) / 1000) * popularity;
+				add(new GLabel(entry.getName() + " " + popularity));
+			} else {
+				currentX = (getWidth() / NDECADES) * i;
+				currentY = (getHeight() - 2 * GRAPH_MARGIN_SIZE);
+				add(new GLabel(entry.getName() + " *"));
+			}
+			
+		}
+	}
+	
+	// Private instance variables
+	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
 	
 	
 	/* Implementation of the ComponentListener interface */
