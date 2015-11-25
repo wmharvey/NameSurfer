@@ -83,7 +83,7 @@ public class NameSurferGraph extends GCanvas
 	private void graphEntry(NameSurferEntry entry) {
 		double lastX = 0;
 		double lastY = 0;
-		Color color = nextColor();
+		Color color = nextColor(list.indexOf(entry));
 		for (int i = 0; i < NDECADES; i++) {
 			int popularity = entry.getRank(i);
 			double currentX = (getWidth() / NDECADES) * i;
@@ -106,9 +106,8 @@ public class NameSurferGraph extends GCanvas
 		}
 	}
 	
-	private Color nextColor() {
-		colorNumber++;
-		if (colorNumber > 3) colorNumber = 0;
+	private Color nextColor(int number) {
+		int colorNumber = number % 4;
 		switch (colorNumber) {
 		case 0: return Color.BLACK;
 		case 1: return Color.RED;
@@ -120,7 +119,6 @@ public class NameSurferGraph extends GCanvas
 	
 	// Private instance variables
 	ArrayList<NameSurferEntry> list = new ArrayList<NameSurferEntry>();
-	private int colorNumber = 3;
 	
 	/* Implementation of the ComponentListener interface */
 	public void componentHidden(ComponentEvent e) { }
