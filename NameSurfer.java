@@ -21,7 +21,6 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void init() {
 	    initControlBar();
 	}
-	
 
 /* Method: actionPerformed(e) */
 /**
@@ -56,4 +55,6 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	private JTextField name;
 	private JButton graph;
 	private JButton clear;
+	
+	private NameSurferDataBase = new NameSurferDataBase("names-data.txt");
 }
